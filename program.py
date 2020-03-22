@@ -5,11 +5,12 @@ import time
 import sys
 import math
 from motion import Motion
+from input import Input
 
-left = []
-right = []
-up = []
-down = []
+left = input("Left")
+right = input("Right")
+up = input("Up")
+down = input("Down")
 movementVals = []
 
 def isVelWithinRange(gyroValCompare, gyroValMovement):
@@ -52,32 +53,16 @@ def isAngleWithinRange(accelValA, accelValB):
     
 try:
     motionVals = Motion()
-    
-    motionVals.map_input(right)
 
-    test = raw_input("Please input the value you would like to set to Left: ")
-    left = motionVals.get_motion()
-    print(left)
-
-    test = raw_input("Please input the value you would like to set to Up: ")
-    up = motionVals.get_motion()
-    print(up)
-
-    test = raw_input("Please input the value you would like to set to Down: ")
-    down = motionVals.get_motion()
-    print(down)
+    motionVals.map_input(right.movementVal, right.inputName)
+    motionVals.map_input(left.movementVal, left.inputName)
+    motionVals.map_input(up.movementVal, up.inputName)
+    motionVals.map_input(down.movementVal, down.inputName)
 
     while True:
         movementVals = motionVals.get_motion()
 
         '''
-        print('{}'.format('-'*30))
-        print('accel [g]: x = {}, y = {}, z = {}'.format(ax,ay,az))
-        print('gyro [dps]:  x = {}, y = {}, z = {}'.format(wx,wy,wz))
-        print('{}'.format('-'*30))
-        
-        
-        
         if(isAngleWithinRange(down[0], movementVals[0]) and isAngleWithinRange(down[1], movementVals[1])
            and isAngleWithinRange(down[2], movementVals[2]) and isVelWithinRange(down[3],movementVals[3])):
             print ("Down")
