@@ -52,23 +52,23 @@ def isAngleWithinRange(accelValA, accelValB):
     
 try:
     test = raw_input("Please input the value you would like to set to Right: ")
-    motionVals = motion();
+    motionVals = motion;
     right.extend(motionVals)
     print(right)
     
     test = raw_input("Please input the value you would like to set to Left: ")
-    motionVals = motion();
+    motionVals = motion;
     left.extend(motionVals)
     print(left)
 
     test = raw_input("Please input the value you would like to set to Up: ")
-    motionVals = motion();
+    motionVals = motion;
     up.extend(motionVals)
     print(up)
 
     
     test = raw_input("Please input the value you would like to set to Down: ")
-    motionVals = motion();
+    motionVals = motion;
     down.extend(motionVals)
     print(down)
     
