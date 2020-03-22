@@ -51,38 +51,29 @@ def isAngleWithinRange(accelValA, accelValB):
 
     
 try:
-    test = raw_input("Please input the value you would like to set to Right: ")
-    motionVals = Motion()
-    right = motionVals.get_motion()
-    print(right)
-    
-    '''
+    map_input(right)
+
     test = raw_input("Please input the value you would like to set to Left: ")
-    motionVals = Motion()
-    left.extend(motionVals)
+    left = motionVals.get_motion()
     print(left)
 
     test = raw_input("Please input the value you would like to set to Up: ")
-    motionVals = Motion()
-    up.extend(motionVals)
+    up = motionVals.get_motion()
     print(up)
 
-    
     test = raw_input("Please input the value you would like to set to Down: ")
-    motionVals = Motion()
-    down.extend(motionVals)
+    down = motionVals.get_motion()
     print(down)
-    '''
+
     while True:
-        ax,ay,az,wx,wy,wz = mpu6050_conv()
-        
-        movementVals.extend((ax,ay,az,wx,wy,wz))
+        movementVals = motionVals.get_motion()
+
         '''
         print('{}'.format('-'*30))
         print('accel [g]: x = {}, y = {}, z = {}'.format(ax,ay,az))
         print('gyro [dps]:  x = {}, y = {}, z = {}'.format(wx,wy,wz))
         print('{}'.format('-'*30))
-        '''
+        
         
         
         if(isAngleWithinRange(down[0], movementVals[0]) and isAngleWithinRange(down[1], movementVals[1])
@@ -99,7 +90,7 @@ try:
             print("Left")
         else:
             print("Input not found!")
-           
+        '''
         movementVals = []
         time.sleep(1.0) #sleep for 1 second
 
