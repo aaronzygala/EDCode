@@ -4,8 +4,8 @@ from MPU9250 import *
 import time
 import sys
 import math
+import motion
 
-ax,ay,az,wx,wy,wz = mpu6050_conv() # read and convert mpu6050 data
 left = []
 right = []
 up = []
@@ -42,34 +42,34 @@ def isVelWithinRange(gyroValCompare, gyroValMovement):
             minRange = gyroValCompare + 10
             maxRange = gyroValCompare - 10
             
-    return((gyroValMovement - minRange)*(gyroValMovement-maxRange) <= 0)
+    return (gyroValMovement - minRange) * (gyroValMovement - maxRange) <= 0
 
 def isAngleWithinRange(accelValA, accelValB):
     minRange = accelValA*100 - 5
     maxRange = accelValA*100 + 5
-    return((accelValB*100 - minRange)*(accelValB*100-maxRange) <= 0)
+    return (accelValB * 100 - minRange) * (accelValB * 100 - maxRange) <= 0
 
     
 try:
     test = raw_input("Please input the value you would like to set to Right: ")
-    ax,ay,az,wx,wy,wz = mpu6050_conv()
-    right.extend((ax,ay,az,wx,wy,wz))
+    motionVals = motion();
+    right.extend(motionVals)
     print(right)
     
     test = raw_input("Please input the value you would like to set to Left: ")
-    ax,ay,az,wx,wy,wz = mpu6050_conv()
-    left.extend((ax,ay,az,wx,wy,wz))
+    motionVals = motion();
+    left.extend(motionVals)
     print(left)
 
     test = raw_input("Please input the value you would like to set to Up: ")
-    ax,ay,az,wx,wy,wz = mpu6050_conv()
-    up.extend((ax,ay,az,wx,wy,wz))
+    motionVals = motion();
+    up.extend(motionVals)
     print(up)
 
     
     test = raw_input("Please input the value you would like to set to Down: ")
-    ax,ay,az,wx,wy,wz = mpu6050_conv()
-    down.extend((ax,ay,az,wx,wy,wz))
+    motionVals = motion();
+    down.extend(motionVals)
     print(down)
     
     while True:
