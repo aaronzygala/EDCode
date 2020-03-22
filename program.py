@@ -51,7 +51,9 @@ def isAngleWithinRange(accelValA, accelValB):
 
     
 try:
-    map_input(right)
+    motionVals = Motion()
+    
+    motionVals.map_input(right)
 
     test = raw_input("Please input the value you would like to set to Left: ")
     left = motionVals.get_motion()
