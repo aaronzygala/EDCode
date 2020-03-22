@@ -22,8 +22,10 @@ class Motion:
 
 
     def compare_motions(self, motion1, motion2):
-        if (isAngleWithinRange(motion1[0], motion2[0]) and isAngleWithinRange(motion1[1], motion2[1])
-                and isAngleWithinRange(motion1[2], motion2[2]) and isVelWithinRange(motion1[3], motion2[3])):
+        mov1 = motion1.movementVal
+        mov2 = motion2.movementVal
+        if (isAngleWithinRange(mov1[0], mov2[0]) and isAngleWithinRange(mov1[1], mov2[1])
+                and isAngleWithinRange(mov1[2], mov2[2]) and isVelWithinRange(mov1[3], mov2[3])):
             return true
         else:
             return false
