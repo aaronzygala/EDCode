@@ -16,19 +16,14 @@ class Motion:
         inputArray = inputVal
         return inputArray
 
-
-
-
-
-
     def compare_motions(self, motion1, motion2):
         mov1 = motion1.movementVal
-        mov2 = motion2.movementVal
+        mov2 = motion2
         if (isAngleWithinRange(mov1[0], mov2[0]) and isAngleWithinRange(mov1[1], mov2[1])
                 and isAngleWithinRange(mov1[2], mov2[2]) and isVelWithinRange(mov1[3], mov2[3])):
-            return true
+            return True
         else:
-            return false
+            return False
 
 
 def isAngleWithinRange(accelValA, accelValB):
