@@ -74,46 +74,6 @@ def mpu6050_conv():
 ##    temp = ((t_val)/333.87)+21.0 # uncomment and add below in return
     return a_x,a_y,a_z,w_x,w_y,w_z
 
-def AK8963_start():
-    bus.write_byte_data(AK8963_ADDR,AK8963_CNTL,0x00)
-    time.sleep(0.1)
-    AK8963_bit_res = 0b0001 # 0b0001 = 16-bit
-    AK8963_samp_rate = 0b0110 # 0b0010 = 8 Hz, 0b0110 = 100 Hz
-    AK8963_mode = (AK8963_bit_res <<4)+AK8963_samp_rate # bit conversion
-    bus.write_byte_data(AK8963_ADDR,AK8963_CNTL,AK8963_mode)
-    time.sleep(0.1)
-    
-def AK8963_reader(register):
-    # read magnetometer values
-    low = bus.read_byte_data(AK8963_ADDR, register-1)
-    high = bus.read_byte_data(AK8963_ADDR, register)
-    # combine higha and low for unsigned bit value
-    value = ((high << 8) | low)
-    # convert to +- value
-    if(value > 32768):
-        value -= 65536
-    return value
-
-def AK8963_conv():
-    # raw magnetometer bits
-
-    loop_count = 0
-    while 1:
-        mag_x = AK8963_reader(HXH)
-        mag_y = AK8963_reader(HYH)
-        mag_z = AK8963_reader(HZH)
-
-        # the next line is needed for AK8963
-        if bin(bus.read_byte_data(AK8963_ADDR,AK8963_ST2))=='0b10000':
-            break
-        loop_count+=1
-        
-    #convert to acceleration in g and gyro dps
-    m_x = (mag_x/(2.0**15.0))*mag_sens
-    m_y = (mag_y/(2.0**15.0))*mag_sens
-    m_z = (mag_z/(2.0**15.0))*mag_sens
-
-    return m_x,m_y,m_z
     
 # MPU6050 Registers
 MPU6050_ADDR = 0x68
@@ -143,4 +103,3 @@ mag_sens = 4900.0 # magnetometer sensitivity: 4800 uT
 # start I2C driver
 bus = smbus.SMBus(1) # start comm with i2c bus
 gyro_sens,accel_sens = MPU6050_start() # instantiate gyro/accel
-AK8963_start() # instantiate magnetometer
