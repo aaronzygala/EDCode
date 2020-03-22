@@ -7,7 +7,7 @@ import math
 from motion import Motion
 
 left = []
-right = 0
+right = []
 up = []
 down = []
 movementVals = []
@@ -53,9 +53,10 @@ def isAngleWithinRange(accelValA, accelValB):
 try:
     test = raw_input("Please input the value you would like to set to Right: ")
     motionVals = Motion()
-    right = motionVals
+    right = motionVals.get_motion()
     print(right)
     
+    '''
     test = raw_input("Please input the value you would like to set to Left: ")
     motionVals = Motion()
     left.extend(motionVals)
@@ -71,7 +72,7 @@ try:
     motionVals = Motion()
     down.extend(motionVals)
     print(down)
-    
+    '''
     while True:
         ax,ay,az,wx,wy,wz = mpu6050_conv()
         

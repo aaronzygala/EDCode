@@ -9,3 +9,5 @@ class Motion:
         self.motionVal = [];
     def get_motion(self):
         self.motionVal = mpu6050_conv();
+        return self.motionVal
+        
