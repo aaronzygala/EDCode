@@ -6,6 +6,6 @@ import math
 class Motion:
 
     def __init__(self):
-        self.motionVal = 0;
+        self.motionVal = [];
     def get_motion(self):
         self.motionVal = mpu6050_conv();

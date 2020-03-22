@@ -4,10 +4,10 @@ from MPU9250 import *
 import time
 import sys
 import math
-import motion
+from motion import Motion
 
 left = []
-right = []
+right = 0
 up = []
 down = []
 movementVals = []
@@ -53,7 +53,7 @@ def isAngleWithinRange(accelValA, accelValB):
 try:
     test = raw_input("Please input the value you would like to set to Right: ")
     motionVals = Motion()
-    right.extend(motionVals)
+    right = motionVals
     print(right)
     
     test = raw_input("Please input the value you would like to set to Left: ")
