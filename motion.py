@@ -3,7 +3,9 @@ import time
 import sys
 import math
 
-class motion:
+class Motion:
+
     def __init__(self):
-        self.motionVals = mpu6050_conv()
-        print ("test")
+        self.motionVal = 0;
+    def get_motion(self):
+        self.motionVal = mpu6050_conv();

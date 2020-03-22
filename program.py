@@ -52,23 +52,25 @@ def isAngleWithinRange(accelValA, accelValB):
     
 try:
     test = raw_input("Please input the value you would like to set to Right: ")
-    motionVals = motion;
-    right.append(motionVals)
+    motionVals = Motion()
+    right.extend(motionVals)
+    print(right)
     
     test = raw_input("Please input the value you would like to set to Left: ")
-    motionVals = motion;
-    left.append(motionVals)
+    motionVals = Motion()
+    left.extend(motionVals)
+    print(left)
 
     test = raw_input("Please input the value you would like to set to Up: ")
-    motionVals = motion;
-    up.append(motionVals)
-
+    motionVals = Motion()
+    up.extend(motionVals)
+    print(up)
 
     
     test = raw_input("Please input the value you would like to set to Down: ")
-    motionVals = motion;
-    down.append(motionVals)
-
+    motionVals = Motion()
+    down.extend(motionVals)
+    print(down)
     
     while True:
         ax,ay,az,wx,wy,wz = mpu6050_conv()
