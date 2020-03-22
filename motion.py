@@ -11,7 +11,7 @@ class Motion:
         self.motionVal = mpu6050_conv()
         return self.motionVal
     def map_input(self, inputArray, inputName):
-        test = raw_input("Please map the value you would like to set to: " + inputName )
+        test = raw_input("Please map the value you would like to set to " + inputName )
         inputVal = self.get_motion()
         inputArray = inputVal
         return inputArray

@@ -7,10 +7,10 @@ import math
 from motion import Motion
 from input import Input
 
-left = input("Left")
-right = input("Right")
-up = input("Up")
-down = input("Down")
+left = Input("Left")
+right = Input("Right")
+up = Input("Up")
+down = Input("Down")
 movementVals = []
 
 def isVelWithinRange(gyroValCompare, gyroValMovement):
@@ -54,30 +54,14 @@ def isAngleWithinRange(accelValA, accelValB):
 try:
     motionVals = Motion()
 
-    motionVals.map_input(right.movementVal, right.inputName)
-    motionVals.map_input(left.movementVal, left.inputName)
-    motionVals.map_input(up.movementVal, up.inputName)
-    motionVals.map_input(down.movementVal, down.inputName)
+    right.movementVal = motionVals.map_input(right.movementVal, right.inputName)
+    left.movementVal = motionVals.map_input(left.movementVal, left.inputName)
+    up.movementVal = motionVals.map_input(up.movementVal, up.inputName)
+    down.movementVal = motionVals.map_input(down.movementVal, down.inputName)
 
     while True:
         movementVals = motionVals.get_motion()
-
-        '''
-        if(isAngleWithinRange(down[0], movementVals[0]) and isAngleWithinRange(down[1], movementVals[1])
-           and isAngleWithinRange(down[2], movementVals[2]) and isVelWithinRange(down[3],movementVals[3])):
-            print ("Down")
-        elif(isAngleWithinRange(up[0], movementVals[0]) and isAngleWithinRange(up[1], movementVals[1])
-           and isAngleWithinRange(up[2], movementVals[2]) and isVelWithinRange(up[3],movementVals[3])):
-            print("Up") 
-        elif(isAngleWithinRange(right[0], movementVals[0]) and isAngleWithinRange(right[1], movementVals[1])
-           and isAngleWithinRange(right[2], movementVals[2]) and isVelWithinRange(right[4],movementVals[4])):
-            print("Right")  
-        elif(isAngleWithinRange(left[0], movementVals[0]) and isAngleWithinRange(left[1], movementVals[1])
-           and isAngleWithinRange(left[2], movementVals[2]) and isVelWithinRange(left[4],movementVals[4])):
-            print("Left")
-        else:
-            print("Input not found!")
-        '''
+         
         movementVals = []
         time.sleep(1.0) #sleep for 1 second
 
