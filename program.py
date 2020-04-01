@@ -30,7 +30,7 @@ def map_all_inputs(inputArray):
     return
 
 def compare_motions(motion, currentInput):
-        mov1 = motion.movementVal
+        mov1 = motion
         mov2 = currentInput.accelRanges
         return isAngleWithinRange(mov1, mov2)
 
