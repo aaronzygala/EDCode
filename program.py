@@ -35,11 +35,12 @@ def compare_motions(motion, currentInput):
         return isAngleWithinRange(mov1, mov2)
 
 def check_input(motionVal, inputArray):
+    rv = "No Input"
     for currentInput in inputArray:
         if compare_motions(motionVal, currentInput):
-            print(currentInput.inputName)
-        else:
-            print("No Input!")
+            rv = currentInput.inputName
+    return rv
+
 def isOverlapping(range1, range2):
     rSet = set(range1)
     rSet.intersect(range2)
@@ -87,8 +88,8 @@ try:
     while True:
         movementVals = motionVals.get_motion()
 
-        check_input(movementVals, possibleInputs) #every second, check for the current input among all the possible inputs
-
+        printInput = check_input(movementVals, possibleInputs) #every second, check for the current input among all the possible inputs
+        print(printInput)
         movementVals = [] #reset current motion val
         time.sleep(1.0) #sleep for 1 second
 
