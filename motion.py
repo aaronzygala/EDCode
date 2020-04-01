@@ -18,10 +18,13 @@ class Motion:
         input.movementVal = inputVal
         i = 0
         for x in input.accelRanges:  # initialize the ranges for each angle
-            x = range(int(input.movementVal[i]) * 100 - 5, int(input.movementVal[i]) * 100 + 5)
+            lowerRange = int(input.movementVal[i]) * 100 - 5
+            upperRange = int(input.movementVal[i]) * 100 + 5
+            x = range(lowerRange, upperRange)
             i += 1
         print(int(input.movementVal[i]) * 100 - 5)
         print(int(input.movementVal[i]) * 100 + 5)
+        print(input.accelRanges)
         return input.movementVal
 
 
