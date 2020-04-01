@@ -22,15 +22,6 @@ class Motion:
             i += 1
         return input.movementVal
 
-    def compare_motions(self, motion, currentInput):
-        mov1 = motion.movementVal
-        mov2 = currentInput.accelRanges
-        return isAngleWithinRange(mov1, mov2)
-
-    def check_input(self, motionVal, inputArray):
-        for currentInput in inputArray:
-            compare_motions(motionVal, currentInput)
-
 def isOverlapping(range1, range2):
     rSet = set(range1)
     rSet.intersect(range2)

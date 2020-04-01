@@ -29,6 +29,15 @@ def map_all_inputs(inputArray):
         x.movementVal = motion_instance.map_input(x)
     return
 
+def compare_motions(motion, currentInput):
+        mov1 = motion.movementVal
+        mov2 = currentInput.accelRanges
+        return isAngleWithinRange(mov1, mov2)
+
+def check_input(motionVal, inputArray):
+    for currentInput in inputArray:
+        compare_motions(motionVal, currentInput)
+
 try:
     motionVals = Motion()
     map_all_inputs(possibleInputs)#mapping all the inputs
@@ -44,7 +53,6 @@ try:
 except KeyboardInterrupt:
     sys.exit()
     
-
 
 
     
