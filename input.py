@@ -8,7 +8,7 @@ class Input:
     def __init__(self, name):
         self.inputName = name
         self.movementVal = []
-        self.accelRangeX = range()
-        self.accelRangeY = range()
-        self.accelRangeZ = range()
+        self.accelRangeX = range(0,0)
+        self.accelRangeY = range(0,0)
+        self.accelRangeZ = range(0,0)
         self.accelRanges = [self.accelRangeX, self.accelRangeY, self.accelRangeZ]
