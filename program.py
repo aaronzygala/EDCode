@@ -10,19 +10,23 @@ from input import Input
 left = Input("Left")
 right = Input("Right")
 up = Input("Up")
+up_left = Input("Up-Left")
+up_right = Input ("Up-Right")
 down = Input("Down")
-movementVals = []
-
-
-
+down_left = Input ("Down-Left")
+down_right = Input ("Down-Right")
+A = Input("A")
+B = Input("B")
+X = Input ("X")
+Y = Input("Y")
     
 try:
     motionVals = Motion()
 
-    right.movementVal = motionVals.map_input(right.movementVal, right.inputName)
-    left.movementVal = motionVals.map_input(left.movementVal, left.inputName)
-    up.movementVal = motionVals.map_input(up.movementVal, up.inputName)
-    down.movementVal = motionVals.map_input(down.movementVal, down.inputName)
+    right.movementVal = motionVals.map_input(right)
+    left.movementVal = motionVals.map_input(left)
+    up.movementVal = motionVals.map_input(up)
+    down.movementVal = motionVals.map_input(down)
 
     while True:
         movementVals = motionVals.get_motion()

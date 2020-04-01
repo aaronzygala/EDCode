@@ -7,32 +7,32 @@ class Motion:
 
     def __init__(self):
         self.motionVal = []
+        #self.velocityRange = []
     def get_motion(self):
         self.motionVal = mpu6050_conv()
         return self.motionVal
-    def map_input(self, inputArray, inputName):
-        test = raw_input("Please map the value you would like to set to " + inputName )
+    def map_input(self, input):
+        test = raw_input("Please map the value you would like to set to " + input.inputName )
         inputVal = self.get_motion()
-        inputArray = inputVal
-        return inputArray
+        input.movementVal = inputVal
+        return input.movementVal
 
     def compare_motions(self, motion1, motion2):
         mov1 = motion1.movementVal
         mov2 = motion2
         if (isAngleWithinRange(mov1[0], mov2[0]) and isAngleWithinRange(mov1[1], mov2[1])
-                and isAngleWithinRange(mov1[2], mov2[2]) and isVelWithinRange(mov1[3], mov2[3])):
+                and isAngleWithinRange(mov1[2], mov2[2])):
             return True
         else:
             return False
-
 
 def isAngleWithinRange(accelValA, accelValB):
     minRange = accelValA * 100 - 5
     maxRange = accelValA * 100 + 5
     return (accelValB * 100 - minRange) * (accelValB * 100 - maxRange) <= 0
 def isVelWithinRange(gyroValCompare, gyroValMovement):
-    minRange = 0;
-    maxRange = 0;
+    minRange = 0
+    maxRange = 0
     if (gyroValCompare > 0):
         if (gyroValCompare > 1000):
             maxRange = gyroValCompare + 500
