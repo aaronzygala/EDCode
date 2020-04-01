@@ -36,7 +36,8 @@ def compare_motions(motion, currentInput):
 
 def check_input(motionVal, inputArray):
     for currentInput in inputArray:
-        compare_motions(motionVal, currentInput)
+        if compare_motions(motionVal, currentInput):
+            print(currentInput.inputName)
 def isOverlapping(range1, range2):
     rSet = set(range1)
     rSet.intersect(range2)
