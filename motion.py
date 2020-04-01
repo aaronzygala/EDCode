@@ -22,46 +22,7 @@ class Motion:
             i += 1
         return input.movementVal
 
-def isOverlapping(range1, range2):
-    rSet = set(range1)
-    rSet.intersect(range2)
 
-def isAngleWithinRange(motion, inputRanges):
-    if motion[0] in inputRanges[0] and motion[1] in inputRanges[1] and motion[2] in inputRanges[2]:
-        return True
-    return False
-
-def isVelWithinRange(gyroValCompare, gyroValMovement):
-    minRange = 0
-    maxRange = 0
-    if (gyroValCompare > 0):
-        if (gyroValCompare > 1000):
-            maxRange = gyroValCompare + 500
-            minRange = gyroValCompare - 500
-        elif (gyroValCompare <= 1000 and gyroValCompare > 500):
-            maxRange = gyroValCompare + 100
-            minRange = gyroValCompare - 100
-        elif (gyroValCompare <= 500 and gyroValCompare > 100):
-            maxRange = gyroValCompare + 50
-            minRange = gyroValCompare - 50
-        elif (gyroValCompare <= 100):
-            maxRange = gyroValCompare + 10
-            minRange = gyroValCompare - 10
-    else:
-        if (gyroValCompare < -1000):
-            minRange = gyroValCompare + 500
-            maxRange = gyroValCompare - 500
-        elif (gyroValCompare >= -1000 and gyroValCompare < -500):
-            minRange = gyroValCompare + 100
-            maxRange = gyroValCompare - 100
-        elif (gyroValCompare >= -500 and gyroValCompare < -100):
-            minRange = gyroValCompare + 50
-            maxRange = gyroValCompare - 50
-        elif (gyroValCompare >= -100):
-            minRange = gyroValCompare + 10
-            maxRange = gyroValCompare - 10
-
-    return (gyroValMovement - minRange) * (gyroValMovement - maxRange) <= 0
 
 
 
