@@ -22,7 +22,7 @@ X = Input ("X")
 Y = Input("Y")
 
 possibleInputs = []
-possibleInputs.extend(left, right, up, down)##, up_left, up_right, down_left, down_right, A, B, X, Y)
+possibleInputs.extend([left, right, up, down])##, up_left, up_right, down_left, down_right, A, B, X, Y)
 def map_all_inputs(inputArray):
     motion_instance = Motion()
     for x in inputArray:
