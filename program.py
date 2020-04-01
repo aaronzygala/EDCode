@@ -45,7 +45,7 @@ try:
     while True:
         movementVals = motionVals.get_motion()
 
-        motionVals.check_input(movementVals, possibleInputs) #every second, check for the current input among all the possible inputs
+        check_input(movementVals, possibleInputs) #every second, check for the current input among all the possible inputs
 
         movementVals = [] #reset current motion val
         time.sleep(1.0) #sleep for 1 second
