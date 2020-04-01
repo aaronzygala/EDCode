@@ -46,9 +46,9 @@ def isOverlapping(range1, range2):
     rSet.intersect(range2)
 
 def isAngleWithinRange(motion, inputRanges):
-    print(motion[0] + " AND " + inputRanges[0])
-    print(motion[1] + " AND " + inputRanges[1])
-    print(motion[2] + " AND " + inputRanges[2])
+    print(str(motion[0]) + " AND " + str(inputRanges[0]))
+    print(str(motion[1]) + " AND " + str(inputRanges[1]))
+    print(str(motion[2]) + " AND " + str(inputRanges[2]))
     if motion[0] in inputRanges[0] and motion[1] in inputRanges[1] and motion[2] in inputRanges[2]:
         return True
     return False
