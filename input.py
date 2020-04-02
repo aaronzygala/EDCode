@@ -18,6 +18,4 @@ class Input:
             x = range(lowerRange, upperRange)
             self.accelRanges.append(x)
             i += 1
-        print(int(self.movementVal[i]) * 100 - 5)
-        print(int(self.movementVal[i]) * 100 + 5)
         print(self.accelRanges)
