@@ -32,13 +32,21 @@ def map_all_inputs(inputArray):
     return
 def map_defaults():
     left.set_movement_val([0.34,0.06,1.43])
+    left.set_ranges()
     right.set_movement_val([-0.40,0.04,1.40])
+    right.set_ranges()
     up.set_movement_val([-0.04,-0.28,1.45])
+    up.set_ranges()
     down.set_movement_val([-0.03,0.47,1.38])
+    down.set_ranges()
     up_left.set_movement_val([0.39,-0.50,1.24])
+    up_left.set_ranges()
     up_right.set_movement_val([-0.45,-0.54,1.18])
+    up_right.set_ranges()
     down_left.set_movement_val([0.25,0.52,1.32])
+    down_left.set_ranges()
     down_right.set_movement_val([-0.32,0.61,1.23])
+    down_right.set_ranges()
 def compare_motions(motion, currentInput):
         mov1 = motion
         mov2 = currentInput.accelRanges
