@@ -49,6 +49,9 @@ def isAngleWithinRange(motion, inputRanges):
     motOne = motion[0] * 100
     motTwo = motion[1] * 100
     motThree = motion[2] * 100
+    print(motOne)
+    print(motTwo)
+    print(motThree)
     if motOne in inputRanges[0] and motTwo in inputRanges[1] and motThree in inputRanges[2]:
         return True
     return False
