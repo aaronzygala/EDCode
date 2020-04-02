@@ -22,13 +22,16 @@ X = Input ("X")
 Y = Input("Y")
 
 possibleInputs = []
-possibleInputs.extend([left, right, up, down])##, up_left, up_right, down_left, down_right, A, B, X, Y)
+possibleInputs.extend([left, right, up, down, up_left, up_right, down_left, down_right, A, B, X, Y])
+defaultInputs = []
+defaultInputs.extend([left, right, up, down, up_left, up_right, down_left, down_right]) #normal default controls for joystick don't include A,B,X,Y
 def map_all_inputs(inputArray):
     motion_instance = Motion()
     for x in inputArray:
         x.movementVal = motion_instance.map_input(x)
     return
-
+def map_defaults():
+    pass
 def compare_motions(motion, currentInput):
         mov1 = motion
         mov2 = currentInput.accelRanges
@@ -87,21 +90,41 @@ def isVelWithinRange(gyroValCompare, gyroValMovement):
 
 
 
+def defaultMode():
+    try:
+        motionVals = Motion()
+        map_defaults()  # mapping all the inputs
+
+        while True:
+            movementVals = motionVals.get_motion()
+            printInput = check_input(movementVals, defaultInputs)  # every second, check for the current input among all the possible inputs
+            print(printInput)
+            movementVals = []  # reset current motion val
+            time.sleep(1.0)  # sleep for 1 second
+    except KeyboardInterrupt:
+        sys.exit()
+
+def mappingMode():
+    try:
+        motionVals = Motion()
+        map_all_inputs(possibleInputs)  # mapping all the inputs
+
+        while True:
+            movementVals = motionVals.get_motion()
+            printInput = check_input(movementVals, possibleInputs)  # every second, check for the current input among all the possible inputs
+            print(printInput)
+            movementVals = []  # reset current motion val
+            time.sleep(1.0)  # sleep for 1 second
+    except KeyboardInterrupt:
+        sys.exit()
+
+
 try:
     choice = input("Enter 1 for the default controls, and 2 for mapping mode: ")
-    print(choice)
-
-
-    motionVals = Motion()
-    map_all_inputs(possibleInputs)#mapping all the inputs
-
-    while True:
-        movementVals = motionVals.get_motion()
-
-        printInput = check_input(movementVals, possibleInputs) #every second, check for the current input among all the possible inputs
-        print(printInput)
-        movementVals = [] #reset current motion val
-        time.sleep(1.0) #sleep for 1 second
+    if choice == 1:
+        defaultMode()
+    else:
+        mappingMode()
 
 except KeyboardInterrupt:
     sys.exit()

@@ -18,3 +18,7 @@ class Input:
             x = range(lowerRange, upperRange)
             self.accelRanges.append(x)
             i += 1
+        print(self.movementVal)
+
+    def set_movement_val(self, newMovementVal):
+        pass
