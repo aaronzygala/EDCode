@@ -8,14 +8,17 @@ class Input:
     def __init__(self, name):
         self.inputName = name
         self.movementVal = []
-        self.accelRanges = [self.accelRangeX, self.accelRangeY, self.accelRangeZ]
+        self.accelRangeX = 0
+        self.accelRangeY = 0
+        self.accelRangeZ = 0
+        self.accelRanges = []
 
     def set_ranges(self):
         i = 0
         for x in self.accelRanges:  # initialize the ranges for each angle
             lowerRange = int(self.movementVal[i]) * 100 - 5
             upperRange = int(self.movementVal[i]) * 100 + 5
-            x = range(lowerRange, upperRange)
+            self.accelRanges[i] = range(lowerRange, upperRange)
             i += 1
         print(int(self.movementVal[i]) * 100 - 5)
         print(int(self.movementVal[i]) * 100 + 5)
