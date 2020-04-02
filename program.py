@@ -90,7 +90,7 @@ def isVelWithinRange(gyroValCompare, gyroValMovement):
 try:
     motionVals = Motion()
     map_all_inputs(possibleInputs)#mapping all the inputs
-    choice = input("Enter 1 for the default controls, and 2 for mapping mode: ")
+    choice = raw_input("Enter 1 for the default controls, and 2 for mapping mode: ")
     print(choice)
     while True:
         movementVals = motionVals.get_motion()
