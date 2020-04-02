@@ -21,4 +21,4 @@ class Input:
             i += 1
 
     def set_movement_val(self, newMovementVal):
-        pass
+        self.movementVal = newMovementVal
