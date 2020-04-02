@@ -13,8 +13,8 @@ class Input:
     def set_ranges(self):
         i = 0
         for x in range(0,3):  # initialize the ranges for each angle
-            lowerRange = int(self.movementVal[i]) * 100 - 5
-            upperRange = int(self.movementVal[i]) * 100 + 5
+            lowerRange = int(self.movementVal[i] * 100) - 5
+            upperRange = int(self.movementVal[i] * 100) + 5
             x = range(lowerRange, upperRange)
             self.accelRanges.append(x)
             i += 1
