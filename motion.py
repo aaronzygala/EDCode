@@ -13,10 +13,9 @@ class Motion:
         return self.motionVal
 
     def map_input(self, input):
-        test = raw_input("Please map the value you would like to set to " + input.inputName )
+        test = raw_input("Please map the value you would like to set to " + input.inputName + ": " )
         inputVal = self.get_motion()
         input.movementVal = inputVal
-        print(input.movementVal)
         input.set_ranges()
         return input.movementVal
 

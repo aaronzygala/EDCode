@@ -18,4 +18,3 @@ class Input:
             x = range(lowerRange, upperRange)
             self.accelRanges.append(x)
             i += 1
-        print(self.accelRanges)
