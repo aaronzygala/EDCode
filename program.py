@@ -46,7 +46,10 @@ def isOverlapping(range1, range2):
     rSet.intersect(range2)
 
 def isAngleWithinRange(motion, inputRanges):
-    if motion[0] in inputRanges[0] and motion[1] in inputRanges[1] and motion[2] in inputRanges[2]:
+    motOne = motion[0] * 100
+    motTwo = motion[1] * 100
+    motThree = motion[2] * 100
+    if motOne in inputRanges[0] and motTwo in inputRanges[1] and motThree in inputRanges[2]:
         return True
     return False
 
